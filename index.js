@@ -1,4 +1,22 @@
+import { HashMap } from "./app.js";
 const map = new HashMap();
 
 
-console.log()
+map.set('name1', 'dmytro');
+map.set('name2', 'dmytro');
+map.set('name3', 'dmytro');
+map.set('name4', 'dmytro');
+map.set('name5', 'dmytro');
+map.set('name6', 'dmytro');
+map.set('name7', 'dmytro');
+map.set('name8', 'dmytro');
+map.set('name9', 'dmytro');
+map.set('name10', 'dmytro');
+map.set('name11', 'dmytro');
+map.set('name12', 'dmytro');
+map.set('name13', 'dmytro');
+map.set('name14', 'dmytro');
+
+// console.log(map.buckets);
+// console.log(map.capacity);
+console.log(map.get('name11'));

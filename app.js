@@ -18,5 +18,66 @@ class HashMap {
         return hashValue % this.capacity;
 
     };
+    
+
+    length() {
+
+        let i = 0;
+
+        for (const bucket of this.buckets) {
+            if (bucket !== null) {
+                i += bucket.length;
+            }
+        };
+
+        return i;
+
+    };
+
+    set(key, value) {
+        const index = this.hash(key);
+
+        if (this.buckets[index] === null) {
+            this.buckets[index] = [{ key, value }];
+        } else {
+            const existing = this.buckets[index].find(item => item.key === key);
+            if (existing) {
+                existing.value = value;
+            } else {
+                this.buckets[index].push({ key, value });
+            };
+        };
+
+        // —————————————————————————
+
+        if (this.length() / this.capacity > this.loadFactor) {
+
+            const oldBuckets = this.buckets;
+
+            this.capacity *= 2;
+
+            this.buckets = new Array(this.capacity).fill(null);
+
+            for (const bucket of oldBuckets) {
+                if (bucket !== null) {
+                    for (const item of bucket) {
+                        this.set(item.key, item.value);
+                    };
+                };
+            };
+        };
+    };
+
+    get(key) {
+
+        const index = this.hash(key);
+
+        if (this.buckets[index].find(item => item === key)) {
+            
+        };
+    };
 
 };
+
+
+export {HashMap};
