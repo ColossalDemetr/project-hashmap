@@ -71,11 +71,53 @@ class HashMap {
     get(key) {
 
         const index = this.hash(key);
+        const existing = this.buckets[index].find(item => item.key === key);
 
-        if (this.buckets[index].find(item => item === key)) {
-            
-        };
+
+        if (existing) {
+            return existing.value;
+        } else undefined;
+
+        return;
     };
+
+    has(key) {
+        const index = this.hash(key);
+
+        if (this.buckets[index] === null) {
+            return false;
+        } else {
+            const existing = this.buckets[index].find(item => item.key === key);
+
+            if (existing) {
+                return true;
+            } else return false;
+        }
+        
+    };
+
+    remove(key) {
+        const index = this.hash(key);
+        
+
+        if (this.buckets[index] === null) return false;
+        
+        const existing = this.buckets[index].find(item => item.key === key);
+
+            if(existing) {
+                const findI = this.buckets[index].findIndex(item => item.key === key);
+                const spliced = this.buckets[index].splice(findI, 1);
+                if (this.buckets[index].length === 0) {this.buckets[index] = null; return true;};
+            };
+
+            return false;
+
+
+
+    };
+
+
+
 
 };
 
