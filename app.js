@@ -112,11 +112,21 @@ class HashMap {
 
             return false;
 
-
-
     };
 
+    keys() {
+        let keys = [];
 
+        for (const bucket of this.buckets) {
+            if (bucket !== null) {
+                for (const item of bucket) {
+                    keys.push(item.key);
+                };
+            };  
+        };
+        return keys;
+        
+    };
 
 
 };
