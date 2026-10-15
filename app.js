@@ -143,6 +143,21 @@ class HashMap {
     
     };
 
+    entries() {
+        let entries = [];
+
+        for (const bucket of this.buckets) {
+            if (bucket !== null) {
+                for (const item of bucket) {
+                    let entry = [];
+                    entry.push(item.key, item.value);
+                    entries.push(entry);
+                };
+            };  
+        };
+        return entries;
+    };
+
 };
 
 

@@ -21,4 +21,4 @@ map.set('name2', 'dmytro');
 // console.log(map.capacity);
 // console.log(map.remove('name1'));
 // console.log(map.buckets);
-console.log(map.values());
+console.log(map.entries());
