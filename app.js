@@ -128,6 +128,20 @@ class HashMap {
         
     };
 
+    values() {
+        let values = [];
+
+        for (const bucket of this.buckets) {
+            if (bucket !== null) {
+                for (const item of bucket) {
+                    values.push(item.value);
+                };
+            };  
+        };
+        return values;
+        
+    
+    };
 
 };
 
